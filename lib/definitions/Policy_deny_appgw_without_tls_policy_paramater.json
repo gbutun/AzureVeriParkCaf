@@ -1,0 +1,27 @@
+{
+    "effect": {
+        "type": "String",
+        "allowedValues": [
+            "Audit",
+            "Deny",
+            "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        }
+    },
+    "predefinedPolicyName": {
+        "type": "array",
+        "metadata": {
+            "displayName": "Predefined policy name",
+            "description": "Predefined policy name"
+        },
+        "defaultValue": [
+            "AppGwSslPolicy20220101",
+            "AppGwSslPolicy20170401S",
+            "AppGwSslPolicy20220101S"
+        ]
+    }
+}

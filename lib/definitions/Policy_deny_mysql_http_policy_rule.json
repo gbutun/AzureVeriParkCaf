@@ -1,0 +1,29 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.DBforMySQL/servers"
+            },
+            {
+                "anyOf": [
+                    {
+                        "field": "Microsoft.DBforMySQL/servers/sslEnforcement",
+                        "exists": "false"
+                    },
+                    {
+                        "field": "Microsoft.DBforMySQL/servers/sslEnforcement",
+                        "notEquals": "Enabled"
+                    },
+                    {
+                        "field": "Microsoft.DBforMySQL/servers/minimalTlsVersion",
+                        "notequals": "[parameters('minimalTlsVersion')]"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

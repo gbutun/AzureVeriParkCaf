@@ -1,0 +1,53 @@
+{
+    "vNetName": {
+        "type": "String",
+        "metadata": {
+            "displayName": "vNetName",
+            "description": "Name of the landing zone vNet"
+        }
+    },
+    "vNetRgName": {
+        "type": "String",
+        "metadata": {
+            "displayName": "vNetRgName",
+            "description": "Name of the landing zone vNet RG"
+        }
+    },
+    "vNetLocation": {
+        "type": "String",
+        "metadata": {
+            "displayName": "vNetLocation",
+            "description": "Location for the vNet"
+        }
+    },
+    "vNetCidrRange": {
+        "type": "String",
+        "metadata": {
+            "displayName": "vNetCidrRange",
+            "description": "CIDR Range for the vNet"
+        }
+    },
+    "hubResourceId": {
+        "type": "String",
+        "metadata": {
+            "displayName": "hubResourceId",
+            "description": "Resource ID for the HUB vNet"
+        }
+    },
+    "dnsServers": {
+        "type": "Array",
+        "metadata": {
+            "displayName": "DNSServers",
+            "description": "Default domain servers for the vNET."
+        },
+        "defaultValue": []
+    },
+    "vNetPeerUseRemoteGateway": {
+        "type": "Boolean",
+        "metadata": {
+            "displayName": "vNetPeerUseRemoteGateway",
+            "description": "Enable gateway transit for the LZ network"
+        },
+        "defaultValue": false
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.MachineLearningServices/workspaces/computes"
+            },
+            {
+                "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
+                "in": [
+                    "AmlCompute",
+                    "ComputeInstance"
+                ]
+            },
+            {
+                "field": "Microsoft.MachineLearningServices/workspaces/computes/vmSize",
+                "notIn": "[parameters('allowedVmSizes')]"
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

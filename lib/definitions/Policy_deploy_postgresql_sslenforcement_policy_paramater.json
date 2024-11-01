@@ -1,0 +1,28 @@
+{
+    "effect": {
+        "type": "String",
+        "defaultValue": "DeployIfNotExists",
+        "allowedValues": [
+            "DeployIfNotExists",
+            "Disabled"
+        ],
+        "metadata": {
+            "displayName": "Effect Azure Database for PostgreSQL server",
+            "description": "Enable or disable the execution of the policy minimum TLS version Azure Database for PostgreSQL server"
+        }
+    },
+    "minimalTlsVersion": {
+        "type": "String",
+        "defaultValue": "TLS1_2",
+        "allowedValues": [
+            "TLS1_2",
+            "TLS1_0",
+            "TLS1_1",
+            "TLSEnforcementDisabled"
+        ],
+        "metadata": {
+            "displayName": "Select version for PostgreSQL server",
+            "description": "Select version minimum TLS version Azure Database for PostgreSQL server to enforce"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts/fileServices"
+            },
+            {
+                "field": "Microsoft.Storage/storageAccounts/fileServices/protocolSettings.smb.channelEncryption",
+                "contains": "[parameters('notAllowedChannelEncryption')]"
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

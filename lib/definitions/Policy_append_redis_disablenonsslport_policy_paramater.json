@@ -1,0 +1,14 @@
+{
+    "effect": {
+        "type": "String",
+        "defaultValue": "Append",
+        "allowedValues": [
+            "Append",
+            "Disabled"
+        ],
+        "metadata": {
+            "displayName": "Effect Azure Cache for Redis",
+            "description": "Enable or disable the execution of the policy minimum TLS version Azure Cache for Redis"
+        }
+    }
+}

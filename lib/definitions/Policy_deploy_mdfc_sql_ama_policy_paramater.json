@@ -1,0 +1,30 @@
+{
+    "effect": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        },
+        "allowedValues": [
+            "DeployIfNotExists",
+            "Disabled"
+        ],
+        "defaultValue": "DeployIfNotExists"
+    },
+    "identityResourceGroup": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Identity Resource Group",
+            "description": "The name of the resource group created by the policy."
+        },
+        "defaultValue": ""
+    },
+    "userAssignedIdentityName": {
+        "type": "String",
+        "metadata": {
+            "displayName": "User Assigned Managed Identity Name",
+            "description": "The name of the user assigned managed identity."
+        },
+        "defaultValue": ""
+    }
+}

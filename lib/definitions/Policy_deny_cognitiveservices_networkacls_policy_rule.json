@@ -1,0 +1,29 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.CognitiveServices/accounts"
+            },
+            {
+                "anyOf": [
+                    {
+                        "count": {
+                            "field": "Microsoft.CognitiveServices/accounts/networkAcls.ipRules[*]"
+                        },
+                        "greater": 0
+                    },
+                    {
+                        "count": {
+                            "field": "Microsoft.CognitiveServices/accounts/networkAcls.virtualNetworkRules[*]"
+                        },
+                        "greater": 0
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

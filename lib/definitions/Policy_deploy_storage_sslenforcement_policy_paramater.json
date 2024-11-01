@@ -1,0 +1,27 @@
+{
+    "effect": {
+        "type": "String",
+        "defaultValue": "DeployIfNotExists",
+        "allowedValues": [
+            "DeployIfNotExists",
+            "Disabled"
+        ],
+        "metadata": {
+            "displayName": "Effect Azure Storage",
+            "description": "Enable or disable the execution of the policy minimum TLS version Azure STorage"
+        }
+    },
+    "minimumTlsVersion": {
+        "type": "String",
+        "defaultValue": "TLS1_2",
+        "allowedValues": [
+            "TLS1_2",
+            "TLS1_1",
+            "TLS1_0"
+        ],
+        "metadata": {
+            "displayName": "Select TLS version for Azure Storage server",
+            "description": "Select version minimum TLS version Azure STorage to enforce"
+        }
+    }
+}

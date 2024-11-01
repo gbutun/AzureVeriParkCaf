@@ -1,0 +1,23 @@
+{
+    "effect": {
+        "type": "String",
+        "allowedValues": [
+            "Audit",
+            "Deny",
+            "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        }
+    },
+    "minContainerDeleteRetentionInDays": {
+        "type": "Integer",
+        "metadata": {
+            "displayName": "Minimum Container Delete Retention in Days",
+            "description": "Specifies the minimum number of days for the container delete retention policy"
+        },
+        "defaultValue": 7
+    }
+}

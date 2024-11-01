@@ -1,0 +1,62 @@
+{
+    "effect": {
+        "type": "String",
+        "allowedValues": [
+            "Modify",
+            "Disabled"
+        ],
+        "defaultValue": "Modify",
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        }
+    },
+    "nsgRuleName": {
+        "type": "string",
+        "defaultValue": "DenyAnyInternetOutbound"
+    },
+    "nsgRulePriority": {
+        "type": "integer",
+        "defaultValue": 1000
+    },
+    "nsgRuleDirection": {
+        "type": "string",
+        "allowedValues": [
+            "Inbound",
+            "Outbound"
+        ],
+        "defaultValue": "Outbound"
+    },
+    "nsgRuleAccess": {
+        "type": "string",
+        "allowedValues": [
+            "Allow",
+            "Deny"
+        ],
+        "defaultValue": "Deny"
+    },
+    "nsgRuleProtocol": {
+        "type": "string",
+        "defaultValue": "*"
+    },
+    "nsgRuleSourceAddressPrefix": {
+        "type": "string",
+        "defaultValue": "*"
+    },
+    "nsgRuleSourcePortRange": {
+        "type": "string",
+        "defaultValue": "*"
+    },
+    "nsgRuleDestinationAddressPrefix": {
+        "type": "string",
+        "defaultValue": "Internet"
+    },
+    "nsgRuleDestinationPortRange": {
+        "type": "string",
+        "defaultValue": "*"
+    },
+    "nsgRuleDescription": {
+        "type": "string",
+        "defaultValue": "Deny any outbound traffic to the Internet"
+    }
+}

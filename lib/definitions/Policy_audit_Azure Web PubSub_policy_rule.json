@@ -1,0 +1,22 @@
+{
+  "if": {
+    "field": "type",
+    "equals": "Microsoft.SignalRService/webPubSub"
+  },
+  "then": {
+    "effect": "[parameters('effect')]",
+    "details": {
+      "type": "Microsoft.Insights/diagnosticSettings",
+      "existenceCondition": {
+        "count": {
+          "field": "Microsoft.Insights/diagnosticSettings/logs[*]",
+          "where": {
+            "field": "Microsoft.Insights/diagnosticSettings/logs.enabled",
+            "equals": "true"
+          }
+        },
+        "greaterOrEquals": 1
+      }
+    }
+  }
+}

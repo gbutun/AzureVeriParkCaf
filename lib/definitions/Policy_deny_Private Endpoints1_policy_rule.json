@@ -1,0 +1,25 @@
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.Network/privateEndpoints"
+        },
+        {
+          "field": "Microsoft.Network/privateEndpoints/manualprivateLinkServiceConnections",
+          "exists": "true"
+        },
+        {
+          "field": "Microsoft.Network/privateEndpoints/manualprivateLinkServiceConnections[*].privateLinkServiceId",
+          "notcontains": "[subscription().id]"
+        }
+      ]
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}

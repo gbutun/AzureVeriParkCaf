@@ -1,0 +1,56 @@
+{
+    "effect": {
+        "type": "String",
+        "allowedValues": [
+            "Audit",
+            "Deny",
+            "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        }
+    },
+    "allowedKinds": {
+        "type": "array",
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Select the allowed resource kinds to be used with Cognitive Services"
+        },
+        "allowedValues": [
+            "AnomalyDetector",
+            "ComputerVision",
+            "CognitiveServices",
+            "ContentModerator",
+            "CustomVision.Training",
+            "CustomVision.Prediction",
+            "Face",
+            "FormRecognizer",
+            "ImmersiveReader",
+            "LUIS",
+            "Personalizer",
+            "SpeechServices",
+            "TextAnalytics",
+            "TextTranslation",
+            "OpenAI"
+        ],
+        "defaultValue": [
+            "AnomalyDetector",
+            "ComputerVision",
+            "CognitiveServices",
+            "ContentModerator",
+            "CustomVision.Training",
+            "CustomVision.Prediction",
+            "Face",
+            "FormRecognizer",
+            "ImmersiveReader",
+            "LUIS",
+            "Personalizer",
+            "SpeechServices",
+            "TextAnalytics",
+            "TextTranslation",
+            "OpenAI"
+        ]
+    }
+}

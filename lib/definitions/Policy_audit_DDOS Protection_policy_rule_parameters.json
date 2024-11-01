@@ -1,0 +1,55 @@
+{
+  "effect": {
+    "type": "String",
+    "metadata": {
+      "displayName": "Effect",
+      "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+      "AuditIfNotExists",
+      "DeployIfNotExists",
+      "Disabled"
+    ],
+    "defaultValue": "AuditIfNotExists"
+  },
+  "profileName": {
+    "type": "String",
+    "metadata": {
+      "displayName": "Diagnostic setting name",
+      "description": "Profile name for the Azure diagnostic settings resource"
+    }
+  },
+  "logAnalytics": {
+    "type": "String",
+    "metadata": {
+      "displayName": "Log Analytics workspace",
+      "description": "The target Log Analytics workspace for the diagnostic settings",
+      "strongType": "omsWorkspace",
+      "assignPermissions": true
+    }
+  },
+  "logsEnabled": {
+    "type": "String",
+    "metadata": {
+      "displayName": "Enable Logs",
+      "description": "Enable Logs - True or False"
+    },
+    "allowedValues": [
+      "True",
+      "False"
+    ],
+    "defaultValue": "True"
+  },
+  "metricsEnabled": {
+    "type": "String",
+    "metadata": {
+      "displayName": "Enable Metrics",
+      "description": "Enable Metrics - True or False"
+    },
+    "allowedValues": [
+      "True",
+      "False"
+    ],
+    "defaultValue": "False"
+  }
+}

@@ -1,0 +1,27 @@
+{
+    "effect": {
+        "type": "String",
+        "defaultValue": "DeployIfNotExists",
+        "allowedValues": [
+            "DeployIfNotExists",
+            "Disabled"
+        ],
+        "metadata": {
+            "displayName": "Effect SQL servers",
+            "description": "Enable or disable the execution of the policy minimum TLS version SQL servers"
+        }
+    },
+    "minimalTlsVersion": {
+        "type": "String",
+        "defaultValue": "1.2",
+        "allowedValues": [
+            "1.2",
+            "1.1",
+            "1.0"
+        ],
+        "metadata": {
+            "displayName": "Select version for SQL server",
+            "description": "Select version minimum TLS version SQL servers to enforce"
+        }
+    }
+}

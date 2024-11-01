@@ -1,0 +1,14 @@
+{
+    "effect": {
+        "type": "String",
+        "defaultValue": "Append",
+        "allowedValues": [
+            "Append",
+            "Disabled"
+        ],
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        }
+    }
+}

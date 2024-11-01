@@ -1,0 +1,65 @@
+{
+    "if": {
+        "anyOf": [
+            {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Storage/storageAccounts/blobServices"
+                    },
+                    {
+                        "count": {
+                            "field": "Microsoft.Storage/storageAccounts/blobServices/cors.corsRules[*]"
+                        },
+                        "greater": 0
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Storage/storageAccounts/fileServices"
+                    },
+                    {
+                        "count": {
+                            "field": "Microsoft.Storage/storageAccounts/fileServices/cors.corsRules[*]"
+                        },
+                        "greater": 0
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Storage/storageAccounts/tableServices"
+                    },
+                    {
+                        "count": {
+                            "field": "Microsoft.Storage/storageAccounts/tableServices/cors.corsRules[*]"
+                        },
+                        "greater": 0
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Storage/storageAccounts/queueServices"
+                    },
+                    {
+                        "count": {
+                            "field": "Microsoft.Storage/storageAccounts/queueServices/cors.corsRules[*]"
+                        },
+                        "greater": 0
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

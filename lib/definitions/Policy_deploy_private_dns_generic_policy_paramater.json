@@ -1,0 +1,45 @@
+{
+    "effect": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        },
+        "allowedValues": [
+            "DeployIfNotExists",
+            "Disabled"
+        ],
+        "defaultValue": "DeployIfNotExists"
+    },
+    "privateDnsZoneId": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Private DNS Zone ID for Paas services",
+            "description": "The private DNS zone name required for specific Paas Services to resolve a private DNS Zone.",
+            "strongType": "Microsoft.Network/privateDnsZones",
+            "assignPermissions": true
+        }
+    },
+    "resourceType": {
+        "type": "String",
+        "metadata": {
+            "displayName": "PaaS private endpoint resource type",
+            "description": "The PaaS endpoint resource type."
+        }
+    },
+    "groupId": {
+        "type": "String",
+        "metadata": {
+            "displayName": "PaaS Private endpoint group ID (subresource)",
+            "description": "The group ID of the PaaS private endpoint. Also referred to as subresource."
+        }
+    },
+    "evaluationDelay": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Evaluation Delay",
+            "description": "The delay in evaluation of the policy. Review delay options at https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deploy-if-not-exists"
+        },
+        "defaultValue": "PT10M"
+    }
+}

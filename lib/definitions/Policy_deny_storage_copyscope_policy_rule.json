@@ -1,0 +1,25 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "anyOf": [
+                    {
+                        "field": "Microsoft.Storage/storageAccounts/allowedCopyScope",
+                        "exists": "false"
+                    },
+                    {
+                        "field": "Microsoft.Storage/storageAccounts/allowedCopyScope",
+                        "notEquals": "[parameters('allowedCopyScope')]"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

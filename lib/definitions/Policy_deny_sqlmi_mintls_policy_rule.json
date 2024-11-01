@@ -1,0 +1,25 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Sql/managedInstances"
+            },
+            {
+                "anyOf": [
+                    {
+                        "field": "Microsoft.Sql/managedInstances/minimalTlsVersion",
+                        "exists": "false"
+                    },
+                    {
+                        "field": "Microsoft.Sql/managedInstances/minimalTlsVersion",
+                        "notequals": "[parameters('minimalTlsVersion')]"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

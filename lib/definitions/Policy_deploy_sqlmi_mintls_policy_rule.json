@@ -1,0 +1,77 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Sql/managedInstances"
+            },
+            {
+                "field": "Microsoft.Sql/managedInstances/minimalTlsVersion",
+                "notequals": "[parameters('minimalTlsVersion')]"
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]",
+        "details": {
+            "type": "Microsoft.Sql/managedInstances",
+            "evaluationDelay": "AfterProvisioningSuccess",
+            "existenceCondition": {
+                "allOf": [
+                    {
+                        "field": "Microsoft.Sql/managedInstances/minimalTlsVersion",
+                        "equals": "[parameters('minimalTlsVersion')]"
+                    }
+                ]
+            },
+            "name": "current",
+            "roleDefinitionIds": [
+                "/providers/microsoft.authorization/roleDefinitions/4939a1f6-9ae0-4e48-a1e0-f2cbe897382d"
+            ],
+            "deployment": {
+                "properties": {
+                    "mode": "Incremental",
+                    "template": {
+                        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                        "contentVersion": "1.0.0.0",
+                        "parameters": {
+                            "resourceName": {
+                                "type": "String"
+                            },
+                            "minimalTlsVersion": {
+                                "type": "String"
+                            },
+                            "location": {
+                                "type": "String"
+                            }
+                        },
+                        "variables": {},
+                        "resources": [
+                            {
+                                "type": "Microsoft.Sql/managedInstances",
+                                "apiVersion": "2020-02-02-preview",
+                                "name": "[concat(parameters('resourceName'))]",
+                                "location": "[parameters('location')]",
+                                "properties": {
+                                    "minimalTlsVersion": "[parameters('minimalTlsVersion')]"
+                                }
+                            }
+                        ],
+                        "outputs": {}
+                    },
+                    "parameters": {
+                        "resourceName": {
+                            "value": "[field('name')]"
+                        },
+                        "minimalTlsVersion": {
+                            "value": "[parameters('minimalTlsVersion')]"
+                        },
+                        "location": {
+                            "value": "[field('location')]"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

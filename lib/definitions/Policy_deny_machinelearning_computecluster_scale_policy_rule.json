@@ -1,0 +1,33 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.MachineLearningServices/workspaces/computes"
+            },
+            {
+                "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
+                "equals": "AmlCompute"
+            },
+            {
+                "anyOf": [
+                    {
+                        "field": "Microsoft.MachineLearningServices/workspaces/computes/scaleSettings.maxNodeCount",
+                        "greater": "[parameters('maxNodeCount')]"
+                    },
+                    {
+                        "field": "Microsoft.MachineLearningServices/workspaces/computes/scaleSettings.minNodeCount",
+                        "greater": "[parameters('minNodeCount')]"
+                    },
+                    {
+                        "value": "[int(last(split(replace(replace(replace(replace(replace(replace(replace(field('Microsoft.MachineLearningServices/workspaces/computes/scaleSettings.nodeIdleTimeBeforeScaleDown'), 'P', '/'), 'Y', '/'), 'M', '/'), 'D', '/'), 'T', '/'), 'H', '/'), 'S', ''), '/')))]",
+                        "greater": "[parameters('maxNodeIdleTimeInSecondsBeforeScaleDown')]"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

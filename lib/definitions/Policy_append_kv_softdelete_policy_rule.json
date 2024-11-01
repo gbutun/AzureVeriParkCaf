@@ -1,0 +1,27 @@
+{
+    "if": {
+        "anyOf": [
+            {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.KeyVault/vaults"
+                    },
+                    {
+                        "field": "Microsoft.KeyVault/vaults/enableSoftDelete",
+                        "notEquals": true
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "Append",
+        "details": [
+            {
+                "field": "Microsoft.KeyVault/vaults/enableSoftDelete",
+                "value": true
+            }
+        ]
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "if": {
+        "field": "type",
+        "equals": "Microsoft.Insights/diagnosticSettings"
+    },
+    "then": {
+        "effect": "denyAction",
+        "details": {
+            "actionNames": [
+                "delete"
+            ]
+        }
+    }
+}

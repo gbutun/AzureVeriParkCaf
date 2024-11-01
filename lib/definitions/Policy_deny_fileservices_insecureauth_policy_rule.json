@@ -1,0 +1,17 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "Microsoft.Storage/storageAccounts/fileServices/protocolSettings.smb.authenticationMethods",
+                "contains": "[parameters('notAllowedAuthMethods')]"
+            },
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts/fileServices"
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

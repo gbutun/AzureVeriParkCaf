@@ -1,0 +1,29 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.MachineLearningServices/workspaces/computes"
+            },
+            {
+                "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
+                "equals": "AKS"
+            },
+            {
+                "anyOf": [
+                    {
+                        "field": "Microsoft.MachineLearningServices/workspaces/computes/resourceId",
+                        "exists": false
+                    },
+                    {
+                        "value": "[empty(field('Microsoft.MachineLearningServices/workspaces/computes/resourceId'))]",
+                        "equals": true
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

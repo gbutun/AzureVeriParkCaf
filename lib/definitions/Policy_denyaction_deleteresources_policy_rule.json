@@ -1,0 +1,22 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "[parameters('resourceType')]"
+            },
+            {
+                "field": "name",
+                "like": "[parameters('resourceName')]"
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]",
+        "details": {
+            "actionNames": [
+                "delete"
+            ]
+        }
+    }
+}

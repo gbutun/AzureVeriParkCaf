@@ -1,0 +1,34 @@
+{
+    "emailSecurityContact": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Security contacts email address",
+            "description": "Provide email addresses (semi-colon separated) for Defender for Cloud contact details"
+        }
+    },
+    "effect": {
+        "type": "String",
+        "defaultValue": "DeployIfNotExists",
+        "allowedValues": [
+            "DeployIfNotExists",
+            "Disabled"
+        ],
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        }
+    },
+    "minimalSeverity": {
+        "type": "String",
+        "defaultValue": "High",
+        "allowedValues": [
+            "High",
+            "Medium",
+            "Low"
+        ],
+        "metadata": {
+            "displayName": "Minimal severity",
+            "description": "Defines the minimal alert severity which will be sent as email notifications"
+        }
+    }
+}

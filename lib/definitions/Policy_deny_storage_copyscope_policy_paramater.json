@@ -1,0 +1,27 @@
+{
+    "effect": {
+        "type": "String",
+        "allowedValues": [
+            "Audit",
+            "Deny",
+            "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        }
+    },
+    "allowedCopyScope": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Allowed Copy Scope",
+            "description": "Specify the allowed copy scope."
+        },
+        "allowedValues": [
+            "AAD",
+            "PrivateLink"
+        ],
+        "defaultValue": "AAD"
+    }
+}

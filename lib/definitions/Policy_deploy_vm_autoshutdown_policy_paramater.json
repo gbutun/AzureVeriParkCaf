@@ -1,0 +1,46 @@
+{
+    "time": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Scheduled Shutdown Time",
+            "description": "Daily Scheduled shutdown time. i.e. 2300 = 11:00 PM"
+        },
+        "defaultValue": "0000"
+    },
+    "timeZoneId": {
+        "type": "string",
+        "defaultValue": "UTC",
+        "metadata": {
+            "displayName": "Time zone",
+            "description": "The time zone ID (e.g. Pacific Standard time)."
+        }
+    },
+    "EnableNotification": {
+        "type": "string",
+        "defaultValue": "Disabled",
+        "metadata": {
+            "displayName": "Send Notification before auto-shutdown",
+            "description": "If notifications are enabled for this schedule (i.e. Enabled, Disabled)."
+        },
+        "allowedValues": [
+            "Disabled",
+            "Enabled"
+        ]
+    },
+    "NotificationEmailRecipient": {
+        "type": "string",
+        "defaultValue": "",
+        "metadata": {
+            "displayName": "Email Address",
+            "description": "Email address to be used for notification"
+        }
+    },
+    "NotificationWebhookUrl": {
+        "type": "string",
+        "defaultValue": "",
+        "metadata": {
+            "displayName": "Webhook URL",
+            "description": "A notification will be posted to the specified webhook endpoint when the auto-shutdown is about to happen."
+        }
+    }
+}

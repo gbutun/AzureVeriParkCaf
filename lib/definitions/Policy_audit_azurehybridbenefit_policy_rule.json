@@ -1,0 +1,52 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "in": [
+                    "Microsoft.Compute/virtualMachines",
+                    "Microsoft.Compute/virtualMachineScaleSets"
+                ]
+            },
+            {
+                "equals": "MicrosoftWindowsServer",
+                "field": "Microsoft.Compute/imagePublisher"
+            },
+            {
+                "equals": "WindowsServer",
+                "field": "Microsoft.Compute/imageOffer"
+            },
+            {
+                "anyOf": [
+                    {
+                        "field": "Microsoft.Compute/imageSKU",
+                        "like": "2008-R2-SP1*"
+                    },
+                    {
+                        "field": "Microsoft.Compute/imageSKU",
+                        "like": "2012-*"
+                    },
+                    {
+                        "field": "Microsoft.Compute/imageSKU",
+                        "like": "2016-*"
+                    },
+                    {
+                        "field": "Microsoft.Compute/imageSKU",
+                        "like": "2019-*"
+                    },
+                    {
+                        "field": "Microsoft.Compute/imageSKU",
+                        "like": "2022-*"
+                    }
+                ]
+            },
+            {
+                "field": "Microsoft.Compute/licenseType",
+                "notEquals": "Windows_Server"
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

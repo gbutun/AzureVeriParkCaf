@@ -1,0 +1,23 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "Microsoft.Web/sites/config/minTlsVersion",
+                "exists": "true"
+            },
+            {
+                "field": "Microsoft.Web/sites/config/minTlsVersion",
+                "notEquals": "[parameters('minTlsVersion')]"
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]",
+        "details": [
+            {
+                "field": "Microsoft.Web/sites/config/minTlsVersion",
+                "value": "[parameters('minTlsVersion')]"
+            }
+        ]
+    }
+}

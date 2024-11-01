@@ -1,0 +1,29 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.MachineLearningServices/workspaces/computes"
+            },
+            {
+                "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
+                "equals": "AmlCompute"
+            },
+            {
+                "anyOf": [
+                    {
+                        "field": "Microsoft.MachineLearningServices/workspaces/computes/remoteLoginPortPublicAccess",
+                        "exists": false
+                    },
+                    {
+                        "field": "Microsoft.MachineLearningServices/workspaces/computes/remoteLoginPortPublicAccess",
+                        "notEquals": "Disabled"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

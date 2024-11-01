@@ -1,0 +1,17 @@
+{
+    "allowedSubscriptions": {
+        "type": "Array",
+        "metadata": {
+            "displayName": "Allowed subscriptions",
+            "description": "A list of subscriptions IDs"
+        },
+        "allowedValues": [
+            "abc12345-abc1-abc1-abc1-abc123456789",
+            "bbc12345-abc1-abc1-abc1-abc123456789",
+            "sub-N"
+        ],
+        "defaultValue": [
+            "abc12345-abc1-abc1-abc1-abc123456789"
+        ]
+    }
+}

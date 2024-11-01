@@ -1,0 +1,45 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Network/networkSecurityGroups"
+            },
+            {
+                "count": {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]"
+                },
+                "equals": 0
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]",
+        "details": {
+            "roleDefinitionIds": [
+                "/providers/microsoft.authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7"
+            ],
+            "conflictEffect": "audit",
+            "operations": [
+                {
+                    "operation": "add",
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+                    "value": {
+                        "name": "[parameters('nsgRuleName')]",
+                        "properties": {
+                            "description": "[parameters('nsgRuleDescription')]",
+                            "protocol": "[parameters('nsgRuleProtocol')]",
+                            "sourcePortRange": "[parameters('nsgRuleSourcePortRange')]",
+                            "destinationPortRange": "[parameters('nsgRuleDestinationPortRange')]",
+                            "sourceAddressPrefix": "[parameters('nsgRuleSourceAddressPrefix')]",
+                            "destinationAddressPrefix": "[parameters('nsgRuleDestinationAddressPrefix')]",
+                            "access": "[parameters('nsgRuleAccess')]",
+                            "priority": "[parameters('nsgRulePriority')]",
+                            "direction": "[parameters('nsgRuleDirection')]"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

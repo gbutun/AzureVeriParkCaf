@@ -1,0 +1,43 @@
+{
+    "effect": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        },
+        "allowedValues": [
+            "DeployIfNotExists",
+            "Disabled"
+        ],
+        "defaultValue": "DeployIfNotExists"
+    },
+    "workspaceRegion": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Workspace region",
+            "description": "Region of the Log Analytics workspace destination for the Data Collection Rule.",
+            "strongType": "location"
+        }
+    },
+    "dcrName": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Data Collection Rule Name",
+            "description": "Name of the Data Collection Rule."
+        }
+    },
+    "dcrResourceGroup": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Data Collection Rule Resource Group",
+            "description": "Resource Group of the Data Collection Rule."
+        }
+    },
+    "dcrId": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Data Collection Rule Id",
+            "description": "Id of the Data Collection Rule."
+        }
+    }
+}

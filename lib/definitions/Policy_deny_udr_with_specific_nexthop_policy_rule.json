@@ -1,0 +1,39 @@
+{
+    "if": {
+        "anyOf": [
+            {
+                "allOf": [
+                    {
+                        "equals": "Microsoft.Network/routeTables",
+                        "field": "type"
+                    },
+                    {
+                        "count": {
+                            "field": "Microsoft.Network/routeTables/routes[*]",
+                            "where": {
+                                "field": "Microsoft.Network/routeTables/routes[*].nextHopType",
+                                "in": "[parameters('excludedDestinations')]"
+                            }
+                        },
+                        "notEquals": 0
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Network/routeTables/routes"
+                    },
+                    {
+                        "field": "Microsoft.Network/routeTables/routes/nextHopType",
+                        "in": "[parameters('excludedDestinations')]"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

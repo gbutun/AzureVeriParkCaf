@@ -1,0 +1,25 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.CognitiveServices/accounts"
+            },
+            {
+                "anyOf": [
+                    {
+                        "field": "Microsoft.CognitiveServices/accounts/restrictOutboundNetworkAccess",
+                        "exists": "false"
+                    },
+                    {
+                        "field": "Microsoft.CognitiveServices/accounts/restrictOutboundNetworkAccess",
+                        "notEquals": true
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

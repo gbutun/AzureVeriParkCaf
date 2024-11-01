@@ -1,0 +1,27 @@
+{
+    "effect": {
+        "type": "String",
+        "allowedValues": [
+            "Audit",
+            "Deny",
+            "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        }
+    },
+    "excludedSubnets": {
+        "type": "Array",
+        "metadata": {
+            "displayName": "Excluded Subnets",
+            "description": "Array of subnet names that are excluded from this policy"
+        },
+        "defaultValue": [
+            "GatewaySubnet",
+            "AzureFirewallSubnet",
+            "AzureFirewallManagementSubnet"
+        ]
+    }
+}

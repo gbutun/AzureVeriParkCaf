@@ -1,0 +1,25 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "anyOf": [
+                    {
+                        "field": "Microsoft.Storage/storageAccounts/networkAcls.bypass",
+                        "exists": "false"
+                    },
+                    {
+                        "field": "Microsoft.Storage/storageAccounts/networkAcls.bypass",
+                        "notIn": "[parameters('allowedBypassOptions')]"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

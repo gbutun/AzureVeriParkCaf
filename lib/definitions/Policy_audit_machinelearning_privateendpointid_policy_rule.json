@@ -1,0 +1,29 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections"
+            },
+            {
+                "field": "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/privateLinkServiceConnectionState.status",
+                "equals": "Approved"
+            },
+            {
+                "anyOf": [
+                    {
+                        "field": "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/privateEndpoint.id",
+                        "exists": false
+                    },
+                    {
+                        "value": "[split(concat(field('Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/privateEndpoint.id'), '//'), '/')[2]]",
+                        "notEquals": "[subscription().subscriptionId]"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

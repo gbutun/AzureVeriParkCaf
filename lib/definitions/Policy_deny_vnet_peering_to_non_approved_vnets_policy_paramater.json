@@ -1,0 +1,23 @@
+{
+    "effect": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        },
+        "allowedValues": [
+            "Audit",
+            "Deny",
+            "Disabled"
+        ],
+        "defaultValue": "Deny"
+    },
+    "allowedVnets": {
+        "type": "Array",
+        "metadata": {
+            "displayName": "Allowed vNets to peer with",
+            "description": "Array of allowed vNets that can be peered with. Must be entered using their resource ID. Example: /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}"
+        },
+        "defaultValue": []
+    }
+}

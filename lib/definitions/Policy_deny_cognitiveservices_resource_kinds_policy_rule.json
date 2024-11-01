@@ -1,0 +1,17 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.CognitiveServices/accounts"
+            },
+            {
+                "field": "kind",
+                "notIn": "[parameters('allowedKinds')]"
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

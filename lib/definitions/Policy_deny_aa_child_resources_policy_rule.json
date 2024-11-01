@@ -1,0 +1,20 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "in": [
+                    "Microsoft.Automation/automationAccounts/runbooks",
+                    "Microsoft.Automation/automationAccounts/variables",
+                    "Microsoft.Automation/automationAccounts/modules",
+                    "Microsoft.Automation/automationAccounts/credentials",
+                    "Microsoft.Automation/automationAccounts/connections",
+                    "Microsoft.Automation/automationAccounts/certificates"
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

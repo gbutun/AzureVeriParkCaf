@@ -1,0 +1,19 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts/fileServices"
+            },
+            {
+                "not": {
+                    "field": "Microsoft.Storage/storageAccounts/fileServices/protocolSettings.smb.versions",
+                    "contains": "[parameters('allowedSmbVersion')]"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

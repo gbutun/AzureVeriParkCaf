@@ -1,0 +1,18 @@
+{
+    "if": {
+      "allOf": [
+        {
+          "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+          "field": "type"
+        },
+        {
+          "field": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/remoteVirtualNetwork.id",
+          "notcontains": "[subscription().id]"
+        }
+      ]
+    },
+    "then": {
+      "effect": "[parameters('effect')]"
+    }
+  }
+

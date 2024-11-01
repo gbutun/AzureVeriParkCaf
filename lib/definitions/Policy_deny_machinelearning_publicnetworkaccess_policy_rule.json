@@ -1,0 +1,17 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.MachineLearningServices/workspaces"
+            },
+            {
+                "field": "Microsoft.MachineLearningServices/workspaces/publicNetworkAccess",
+                "notEquals": "Disabled"
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

@@ -1,0 +1,63 @@
+{
+  "if": {
+    "anyOf": [
+      {
+        "allOf": [
+          {
+            "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "field": "type"
+          },
+          {
+            "not": {
+              "field": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/remoteVirtualNetwork.id",
+              "in": "[parameters('allowedVnets')]"
+            }
+          },
+          {
+            "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "field": "type"
+          },
+          {
+            "not": {
+            "field": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/remoteVirtualNetwork.id",
+            "in": "[parameters('allowedSubs')]"
+          }
+          }
+        ]
+      },
+      {
+        "allOf": [
+          {
+            "equals": "Microsoft.Network/virtualNetworks",
+            "field": "type"
+          },
+          {
+            "not": {
+              "field": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings[*].remoteVirtualNetwork.id",
+              "in": "[parameters('allowedVnets')]"
+            }
+          },
+          {
+            "not": {
+              "exists": false,
+              "field": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings[*].remoteVirtualNetwork.id"
+            }
+          },
+          {
+            "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "field": "type"
+          },
+          {
+            "not": {
+            "field": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/remoteVirtualNetwork.id",
+            "in": "[parameters('allowedSubs')]"
+           }
+          }          
+        ]
+      }
+    ]
+  },
+  "then": {
+    "effect": "[parameters('effect')]"
+  }
+}

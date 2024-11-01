@@ -1,0 +1,23 @@
+{
+    "if": {
+      "count": {
+        "field": "Microsoft.Network/privateEndpoints/manualprivateLinkServiceConnections[*]",
+        "where": {
+          "allOf": [
+            {
+              "field": "Microsoft.Network/privateEndpoints/manualprivateLinkServiceConnections[*].privateLinkServiceId",
+              "notEquals": ""
+            },
+            {
+              "value": "[split(concat(first(field('Microsoft.Network/privateEndpoints/manualprivateLinkServiceConnections[*].privateLinkServiceId')), '//'), '/')[2]]",
+              "notIn": "[parameters('allowedSubscriptions')]"
+            }
+          ]
+        }
+      },
+      "notEquals": 0
+    },
+    "then": {
+      "effect": "deny"
+    }
+  }

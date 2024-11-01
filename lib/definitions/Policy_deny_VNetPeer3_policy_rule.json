@@ -1,0 +1,19 @@
+{
+  "if": {
+    "allOf": [
+      {
+        "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+        "field": "type"
+      },
+      {
+        "value": "[split(concat(first(field('Microsoft.Network/virtualNetworks/virtualNetworkPeerings/remoteVirtualNetwork.id')), '//'), '/')[2]]",
+        "notIn": "[parameters('allowedSubs')]"
+      }
+    ]
+  },
+  "then": {
+    "effect": "[parameters('effect')]"
+  }
+}
+
+

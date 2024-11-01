@@ -1,0 +1,28 @@
+{
+    "effect": {
+        "type": "String",
+        "defaultValue": "DeployIfNotExists",
+        "allowedValues": [
+            "DeployIfNotExists",
+            "Disabled"
+        ],
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        }
+    },
+    "excludedDatabases": {
+        "type": "Array",
+        "metadata": {
+            "displayName": "Excluded Databases",
+            "description": "Array of databases that are excluded from this policy"
+        },
+        "defaultValue": [
+            "master",
+            "model",
+            "tempdb",
+            "msdb",
+            "resource"
+        ]
+    }
+}

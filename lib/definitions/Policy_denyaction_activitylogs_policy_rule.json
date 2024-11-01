@@ -1,0 +1,14 @@
+{
+    "if": {
+        "field": "type",
+        "equals": "Microsoft.Resources/subscriptions/providers/diagnosticSettings"
+    },
+    "then": {
+        "effect": "denyAction",
+        "details": {
+            "actionNames": [
+                "delete"
+            ]
+        }
+    }
+}

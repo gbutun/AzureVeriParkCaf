@@ -1,0 +1,27 @@
+{
+    "effect": {
+        "type": "String",
+        "defaultValue": "Deny",
+        "allowedValues": [
+            "Audit",
+            "Deny",
+            "Disabled"
+        ],
+        "metadata": {
+            "displayName": "Effect",
+            "description": "The effect determines what happens when the policy rule is evaluated to match"
+        }
+    },
+    "notAllowedAuthMethods": {
+        "type": "String",
+        "defaultValue": "NTLMv2",
+        "allowedValues": [
+            "NTLMv2",
+            "Kerberos"
+        ],
+        "metadata": {
+            "displayName": "Authentication methods supported by server. Valid values are NTLMv2, Kerberos.",
+            "description": "The list of channelEncryption not allowed."
+        }
+    }
+}

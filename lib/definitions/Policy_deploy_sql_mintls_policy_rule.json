@@ -1,0 +1,76 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Sql/servers"
+            },
+            {
+                "field": "Microsoft.Sql/servers/minimalTlsVersion",
+                "notequals": "[parameters('minimalTlsVersion')]"
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]",
+        "details": {
+            "type": "Microsoft.Sql/servers",
+            "existenceCondition": {
+                "allOf": [
+                    {
+                        "field": "Microsoft.Sql/servers/minimalTlsVersion",
+                        "equals": "[parameters('minimalTlsVersion')]"
+                    }
+                ]
+            },
+            "name": "current",
+            "roleDefinitionIds": [
+                "/providers/microsoft.authorization/roleDefinitions/6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437"
+            ],
+            "deployment": {
+                "properties": {
+                    "mode": "Incremental",
+                    "template": {
+                        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                        "contentVersion": "1.0.0.0",
+                        "parameters": {
+                            "resourceName": {
+                                "type": "String"
+                            },
+                            "minimalTlsVersion": {
+                                "type": "String"
+                            },
+                            "location": {
+                                "type": "String"
+                            }
+                        },
+                        "variables": {},
+                        "resources": [
+                            {
+                                "type": "Microsoft.Sql/servers",
+                                "apiVersion": "2019-06-01-preview",
+                                "name": "[concat(parameters('resourceName'))]",
+                                "location": "[parameters('location')]",
+                                "properties": {
+                                    "minimalTlsVersion": "[parameters('minimalTlsVersion')]"
+                                }
+                            }
+                        ],
+                        "outputs": {}
+                    },
+                    "parameters": {
+                        "resourceName": {
+                            "value": "[field('name')]"
+                        },
+                        "minimalTlsVersion": {
+                            "value": "[parameters('minimalTlsVersion')]"
+                        },
+                        "location": {
+                            "value": "[field('location')]"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

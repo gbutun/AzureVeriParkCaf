@@ -1,0 +1,27 @@
+{
+    "effect": {
+        "type": "String",
+        "defaultValue": "Deny",
+        "allowedValues": [
+            "Audit",
+            "Deny",
+            "Disabled"
+        ],
+        "metadata": {
+            "displayName": "Effect",
+            "description": "The effect determines what happens when the policy rule is evaluated to match"
+        }
+    },
+    "notAllowedKerberosTicketEncryption": {
+        "type": "String",
+        "defaultValue": "RC4-HMAC",
+        "allowedValues": [
+            "RC4-HMAC",
+            "AES-256"
+        ],
+        "metadata": {
+            "displayName": "Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256.",
+            "description": "The list of kerberosTicketEncryption not allowed."
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts/fileServices"
+            },
+            {
+                "field": "Microsoft.Storage/storageAccounts/fileServices/protocolSettings.smb.kerberosTicketEncryption",
+                "contains": "[parameters('notAllowedKerberosTicketEncryption')]"
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

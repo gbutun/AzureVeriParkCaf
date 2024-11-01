@@ -1,0 +1,25 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Web/certificates"
+            },
+            {
+                "anyOf": [
+                    {
+                        "field": "Microsoft.Web/certificates/keyVaultId",
+                        "exists": "false"
+                    },
+                    {
+                        "field": "Microsoft.Web/certificates/keyVaultSecretName",
+                        "exists": "false"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

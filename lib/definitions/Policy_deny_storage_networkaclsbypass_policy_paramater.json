@@ -1,0 +1,43 @@
+{
+    "effect": {
+        "type": "String",
+        "allowedValues": [
+            "Audit",
+            "Deny",
+            "Disabled"
+        ],
+        "defaultValue": "Deny",
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        }
+    },
+    "allowedBypassOptions": {
+        "type": "Array",
+        "metadata": {
+            "displayName": "Allowed Bypass Options",
+            "description": "Specifies which options are allowed to bypass the vnet configuration"
+        },
+        "allowedValues": [
+            "None",
+            "Logging",
+            "Metrics",
+            "AzureServices",
+            "Logging, Metrics",
+            "Logging, AzureServices",
+            "Metrics, AzureServices",
+            "Logging, Metrics, AzureServices",
+            "Logging, Metrics, AzureServices"
+        ],
+        "defaultValue": [
+            "Logging",
+            "Metrics",
+            "AzureServices",
+            "Logging, Metrics",
+            "Logging, AzureServices",
+            "Metrics, AzureServices",
+            "Logging, Metrics, AzureServices",
+            "Logging, Metrics, AzureServices"
+        ]
+    }
+}

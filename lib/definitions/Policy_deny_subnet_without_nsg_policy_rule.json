@@ -1,0 +1,51 @@
+{
+    "if": {
+        "anyOf": [
+            {
+                "allOf": [
+                    {
+                        "equals": "Microsoft.Network/virtualNetworks",
+                        "field": "type"
+                    },
+                    {
+                        "count": {
+                            "field": "Microsoft.Network/virtualNetworks/subnets[*]",
+                            "where": {
+                                "allOf": [
+                                    {
+                                        "exists": "false",
+                                        "field": "Microsoft.Network/virtualNetworks/subnets[*].networkSecurityGroup.id"
+                                    },
+                                    {
+                                        "field": "Microsoft.Network/virtualNetworks/subnets[*].name",
+                                        "notIn": "[parameters('excludedSubnets')]"
+                                    }
+                                ]
+                            }
+                        },
+                        "notEquals": 0
+                    }
+                ]
+            },
+            {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Network/virtualNetworks/subnets"
+                    },
+                    {
+                        "field": "name",
+                        "notIn": "[parameters('excludedSubnets')]"
+                    },
+                    {
+                        "field": "Microsoft.Network/virtualNetworks/subnets/networkSecurityGroup.id",
+                        "exists": "false"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

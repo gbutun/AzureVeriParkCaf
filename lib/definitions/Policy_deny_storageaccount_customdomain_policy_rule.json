@@ -1,0 +1,25 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "anyOf": [
+                    {
+                        "field": "Microsoft.Storage/storageAccounts/customDomain",
+                        "exists": "true"
+                    },
+                    {
+                        "field": "Microsoft.Storage/storageAccounts/customDomain.useSubDomainName",
+                        "equals": "true"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

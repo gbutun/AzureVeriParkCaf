@@ -1,0 +1,175 @@
+{
+  "effect": {
+    "type": "String",
+    "metadata": {
+      "displayName": "Effect",
+      "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+      "DeployIfNotExists",
+      "Disabled"
+    ],
+    "defaultValue": "DeployIfNotExists"
+  },
+  "diagnosticsSettingNameToUse": {
+    "type": "String",
+    "metadata": {
+      "displayName": "Setting name",
+      "description": "Name of the diagnostic settings."
+    },
+    "defaultValue": "AzureKubernetesDiagnosticsLogsToWorkspace"
+  },
+  "logAnalytics": {
+    "type": "String",
+    "metadata": {
+      "displayName": "Log Analytics workspace",
+      "description": "Specify the Log Analytics workspace the Azure Kubernetes Service should be connected to",
+      "strongType": "omsWorkspace",
+      "assignPermissions": true
+    }
+  },
+  "AllMetrics": {
+    "type": "String",
+    "metadata": {
+      "displayName": "AllMetrics - Enabled",
+      "description": "Whether to stream AllMetrics logs to the Log Analytics workspace - True or False"
+    },
+    "allowedValues": [
+      "True",
+      "False"
+    ],
+    "defaultValue": "True"
+  },
+  "kube-apiserver": {
+    "type": "String",
+    "metadata": {
+      "displayName": "kube-apiserver - Enabled",
+      "description": "Whether to stream kube-apiserver logs to the Log Analytics workspace - True or False"
+    },
+    "allowedValues": [
+      "True",
+      "False"
+    ],
+    "defaultValue": "True"
+  },
+  "kube-audit": {
+    "type": "String",
+    "metadata": {
+      "displayName": "kube-audit - Enabled",
+      "description": "Whether to stream kube-audit logs to the Log Analytics workspace - True or False"
+    },
+    "allowedValues": [
+      "True",
+      "False"
+    ],
+    "defaultValue": "True"
+  },
+  "kube-controller-manager": {
+    "type": "String",
+    "metadata": {
+      "displayName": "kube-controller-manager - Enabled",
+      "description": "Whether to stream kube-controller-manager logs to the Log Analytics workspace - True or False"
+    },
+    "allowedValues": [
+      "True",
+      "False"
+    ],
+    "defaultValue": "True"
+  },
+  "kube-scheduler": {
+    "type": "String",
+    "metadata": {
+      "displayName": "kube-scheduler - Enabled",
+      "description": "Whether to stream kube-scheduler logs to the Log Analytics workspace - True or False"
+    },
+    "allowedValues": [
+      "True",
+      "False"
+    ],
+    "defaultValue": "True"
+  },
+  "cluster-autoscaler": {
+    "type": "String",
+    "metadata": {
+      "displayName": "cluster-autoscaler - Enabled",
+      "description": "Whether to stream cluster-autoscaler logs to the Log Analytics workspace - True or False"
+    },
+    "allowedValues": [
+      "True",
+      "False"
+    ],
+    "defaultValue": "True"
+  },
+  "kube-audit-admin": {
+    "type": "String",
+    "metadata": {
+      "displayName": "kube-audit-admin - Enabled",
+      "description": "Whether to stream kube-audit-admin logs to the Log Analytics workspace - True or False"
+    },
+    "allowedValues": [
+      "True",
+      "False"
+    ],
+    "defaultValue": "True"
+  },
+  "guard": {
+    "type": "String",
+    "metadata": {
+      "displayName": "guard - Enabled",
+      "description": "Whether to stream guard logs to the Log Analytics workspace - True or False"
+    },
+    "allowedValues": [
+      "True",
+      "False"
+    ],
+    "defaultValue": "True"
+  },
+  "cloud-controller-manager": {
+    "type": "String",
+    "metadata": {
+      "displayName": "cloud-controller-manager - Enabled",
+      "description": "Whether to stream cloud-controller-manager logs to the Log Analytics workspace - True or False"
+    },
+    "allowedValues": [
+      "True",
+      "False"
+    ],
+    "defaultValue": "True"
+  },
+  "csi-azuredisk-controller": {
+    "type": "String",
+    "metadata": {
+      "displayName": "csi-azuredisk-controller - Enabled",
+      "description": "Whether to stream csi-azuredisk-controller logs to the Log Analytics workspace - True or False"
+    },
+    "allowedValues": [
+      "True",
+      "False"
+    ],
+    "defaultValue": "True"
+  },
+  "csi-azurefile-controller": {
+    "type": "String",
+    "metadata": {
+      "displayName": "csi-azurefile-controller - Enabled",
+      "description": "Whether to stream csi-azurefile-controller logs to the Log Analytics workspace - True or False"
+    },
+    "allowedValues": [
+      "True",
+      "False"
+    ],
+    "defaultValue": "True"
+  },
+  "csi-snapshot-controller": {
+    "type": "String",
+    "metadata": {
+      "displayName": "csi-snapshot-controller - Enabled",
+      "description": "Whether to stream csi-snapshot-controller logs to the Log Analytics workspace - True or False"
+    },
+    "allowedValues": [
+      "True",
+      "False"
+    ],
+    "defaultValue": "True"
+  }
+}

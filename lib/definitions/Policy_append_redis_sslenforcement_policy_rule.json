@@ -1,0 +1,27 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Cache/redis"
+            },
+            {
+                "anyOf": [
+                    {
+                        "field": "Microsoft.Cache/Redis/minimumTlsVersion",
+                        "notequals": "[parameters('minimumTlsVersion')]"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]",
+        "details": [
+            {
+                "field": "Microsoft.Cache/Redis/minimumTlsVersion",
+                "value": "[parameters('minimumTlsVersion')]"
+            }
+        ]
+    }
+}

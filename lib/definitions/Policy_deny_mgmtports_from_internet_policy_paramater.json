@@ -1,0 +1,26 @@
+{
+    "effect": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        },
+        "allowedValues": [
+            "Audit",
+            "Deny",
+            "Disabled"
+        ],
+        "defaultValue": "Deny"
+    },
+    "ports": {
+        "type": "Array",
+        "metadata": {
+            "displayName": "Ports",
+            "description": "Ports to be blocked"
+        },
+        "defaultValue": [
+            "22",
+            "3389"
+        ]
+    }
+}

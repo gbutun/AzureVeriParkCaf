@@ -1,0 +1,29 @@
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Network/applicationGateways"
+            },
+            {
+                "anyOf": [
+                    {
+                        "field": "Microsoft.Network/applicationGateways/sslPolicy.policyType",
+                        "notEquals": "Predefined"
+                    },
+                    {
+                        "field": "Microsoft.Network/applicationGateways/sslPolicy.policyType",
+                        "exists": "false"
+                    },
+                    {
+                        "field": "Microsoft.Network/applicationGateways/sslPolicy.policyName",
+                        "notIn": "[parameters('predefinedPolicyName')]"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

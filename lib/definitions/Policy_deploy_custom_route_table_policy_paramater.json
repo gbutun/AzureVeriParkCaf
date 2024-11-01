@@ -1,0 +1,43 @@
+{
+    "effect": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Effect",
+            "description": "Enable or disable the execution of the policy"
+        },
+        "allowedValues": [
+            "DeployIfNotExists",
+            "Disabled"
+        ],
+        "defaultValue": "DeployIfNotExists"
+    },
+    "requiredRoutes": {
+        "type": "Array",
+        "metadata": {
+            "displayName": "requiredRoutes",
+            "description": "Routes that must exist in compliant route tables deployed by this policy"
+        }
+    },
+    "vnetRegion": {
+        "type": "String",
+        "metadata": {
+            "displayName": "vnetRegion",
+            "description": "Only VNets in this region will be evaluated against this policy"
+        }
+    },
+    "routeTableName": {
+        "type": "String",
+        "metadata": {
+            "displayName": "routeTableName",
+            "description": "Name of the route table automatically deployed by this policy"
+        }
+    },
+    "disableBgpPropagation": {
+        "type": "Boolean",
+        "metadata": {
+            "displayName": "DisableBgpPropagation",
+            "description": "Disable BGP Propagation"
+        },
+        "defaultValue": false
+    }
+}
